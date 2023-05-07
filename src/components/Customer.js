@@ -1,7 +1,6 @@
 import React from "react";
-import { Table, TableHead, TableBody, TableRow, TableCell } from '@mui/material';
-import { withStyles } from '@mui/material'
-import { styled } from '@mui/material'
+import { Table, TableHead, TableBody, TableRow, TableCell, StyledEngineProvider } from '@mui/material';
+import styled from 'styled-components';
 import { tableCellClasses } from '@mui/material'
 
 
@@ -17,10 +16,19 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   }));
 
 
-class Customer extends React.Component{
-    render() {
-        return(
-            <Table style = {{position : 1000}}>
+const Back = styled.div`
+    position : absolute;
+    width: 1398px;
+    height: 58px;
+    left: 40px;
+    top: 100px;
+`
+
+function Customer(props) {
+    return(
+        <StyledEngineProvider injectFirst>
+        <Back>
+            <Table>
                 <TableHead>
                     <StyledTableCell>사업일</StyledTableCell>
                     <StyledTableCell>담당자</StyledTableCell>
@@ -37,13 +45,24 @@ class Customer extends React.Component{
                 </TableHead>
                 <TableBody>
                     <TableRow>
-                        <TableCell>{this.props.name}</TableCell>
-                        <TableCell>{this.props.birthday}</TableCell>
+                        <TableCell>{props.date}</TableCell>
+                        <TableCell>{props.manager}</TableCell>
+                        <TableCell>{props.detail}</TableCell>
+                        <TableCell>{props.code}</TableCell>
+                        <TableCell>{props.type}</TableCell>
+                        <TableCell>{props.price}</TableCell>
+                        <TableCell>{props.out}</TableCell>
+                        <TableCell>{props.remain}</TableCell>
+                        <TableCell>{props.exchangedate}</TableCell>
+                        <TableCell>{props.bank}</TableCell>
+                        <TableCell>{props.receipt}</TableCell>
                     </TableRow>
                 </TableBody>
             </Table>
+        </Back>
+        </StyledEngineProvider>
         )
-    }
 }
+
 
 export default Customer;
