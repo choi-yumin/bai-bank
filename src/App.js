@@ -1,8 +1,8 @@
 import { Button, StyledEngineProvider } from '@mui/material';
 import './App.css';
-import Customer from './components/Customer';
 import React from 'react';
 import styled from 'styled-components';
+import BudgetTable from './components/BudgetTable';
 
 
 const Rectangle1 = styled.div`
@@ -103,7 +103,7 @@ const StyledAddButton = styled(Button)`
 `
 
 
-const customer = [
+const budget = [
 	{
 		"date": "2023-03-01",
 		"code": "A1",
@@ -124,7 +124,7 @@ const customer = [
 		"detail": "교통비",
 		"price": "40,000",
 		"receipt": "",
-	},
+	}
 ]
 
 
@@ -142,16 +142,7 @@ function App() {
             <Rectangle3>
                 <Title>KAIST 학부총학생회 23년도 상반기 회계감사자료 통장거래내역</Title>
                 <StyledAddButton variant='outlined'>내역 추가</StyledAddButton>
-              {customer.map(c => {
-                return (
-                  <Customer 
-                    date={c.date}
-                    code={c.code}
-                    detail={c.detail}
-                    price={c.price}
-                    receipt={c.receipt}/>
-                )
-              })}           
+                <BudgetTable budget={budget}/>         
             </Rectangle3>
           </Vector>
         </Rectangle1>

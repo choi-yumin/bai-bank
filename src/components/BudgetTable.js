@@ -1,7 +1,8 @@
 import React from "react";
-import { Table, TableHead, TableBody, TableRow, TableCell, StyledEngineProvider } from '@mui/material';
+import { Table, TableHead, TableBody, TableCell, StyledEngineProvider } from '@mui/material';
 import styled from 'styled-components';
 import { tableCellClasses } from '@mui/material'
+import BudgetCell from "./BudgetCell";
 
 
 
@@ -16,7 +17,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   }));
 
 
-const Back = styled.div`
+const Container = styled.div`
     position : absolute;
     width: 1398px;
     height: 58px;
@@ -24,10 +25,10 @@ const Back = styled.div`
     top: 100px;
 `
 
-function Customer(props) {
+function BudgetTable({budget}) {
     return(
         <StyledEngineProvider injectFirst>
-        <Back>
+        <Container>
             <Table>
                 <TableHead>
                     <StyledTableCell>사업일</StyledTableCell>
@@ -44,25 +45,29 @@ function Customer(props) {
                     <StyledTableCell>비고</StyledTableCell>
                 </TableHead>
                 <TableBody>
-                    <TableRow>
-                        <TableCell>{props.date}</TableCell>
-                        <TableCell>{props.manager}</TableCell>
-                        <TableCell>{props.detail}</TableCell>
-                        <TableCell>{props.code}</TableCell>
-                        <TableCell>{props.type}</TableCell>
-                        <TableCell>{props.price}</TableCell>
-                        <TableCell>{props.out}</TableCell>
-                        <TableCell>{props.remain}</TableCell>
-                        <TableCell>{props.exchangedate}</TableCell>
-                        <TableCell>{props.bank}</TableCell>
-                        <TableCell>{props.receipt}</TableCell>
-                    </TableRow>
+                    {budget.map ( c => {
+                        return (
+                            <BudgetCell 
+                                date={c.date} 
+                                manager={c.manager}
+                                contents={c.contents}
+                                code={c.code}
+                                type={c.type}
+                                income={c.income}
+                                price={c.price}
+                                remain={c.remain}
+                                when={c.when}
+                                num={c.num}
+                                receipt={c.receipt}
+                                />
+                        )
+                    })}
                 </TableBody>
             </Table>
-        </Back>
+        </Container>
         </StyledEngineProvider>
         )
 }
 
 
-export default Customer;
+export default BudgetTable;
