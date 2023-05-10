@@ -42,6 +42,7 @@ function Customer(props) {
                     <StyledTableCell>이체계좌번호</StyledTableCell>
                     <StyledTableCell>영수증</StyledTableCell>
                     <StyledTableCell>비고</StyledTableCell>
+                    <StyledTableCell>수정사항</StyledTableCell>
                 </TableHead>
                 <TableBody>
                     <TableRow>
