@@ -1,0 +1,38 @@
+.Field {
+    position: absolute;
+    width: 1463px;
+    height: 856px;
+    left: 395px;
+    top: 185px;
+
+    background: #FFFFFF;
+    border-radius: 15px;
+}
+
+.Template {
+    position: absolute;
+    width: 738px;
+    height: 25px;
+    left: 448px;
+    top: 228px;
+}
+
+.Title1 {
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+    display: inline-block;
+    color: #0151CA;
+}
+
+.Title2 {
+    font-family: 'Noto Sans';
+    display: inline-block;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    line-height: 33px;
+
+}
